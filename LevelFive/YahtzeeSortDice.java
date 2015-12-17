@@ -7,9 +7,9 @@ public class YahtzeeSortDice
 	private int fifth;
 
 	/* constructor: initializes the private data by sorting the order of the dice */
-	public YahtzeeSortDice(int a, int b, int c, int d, int e)
+	public YahtzeeSortDice(int a, int b, int c, int d, int e)  //bubble sort algorithm
 	{
-		while(a<=b && b<=c && c<=d && d<=e) {
+		while(!(a<=b && b<=c && c<=d && d<=e)) {
 			int temp;
 			if (a > b) {
 				temp = a;

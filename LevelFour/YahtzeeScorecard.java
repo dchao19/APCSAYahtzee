@@ -151,8 +151,14 @@ public class YahtzeeScorecard
 	   	4. Return true   */
 	public boolean markThreeOfAKind(int die1, int die2, int die3, int die4, int die5)
 	{
+		;
 		if(threeKind > -1)return false;
 		YahtzeeSortDice sorted = new YahtzeeSortDice(die1,die2,die3,die4,die5);
+		System.out.println(sorted.getFirst());
+		System.out.println(sorted.getSecond());
+		System.out.println(sorted.getThird());
+		System.out.println(sorted.getFourth());
+		System.out.println(sorted.getFifth());
 		if(sorted.getFirst() == sorted.getSecond() && sorted.getSecond() == sorted.getThird()) threeKind = die1 + die2 + die3 + die4 + die5;
 		else if(sorted.getSecond() == sorted.getThird() && sorted.getThird() == sorted.getFourth()) threeKind = die1 + die2 + die3 + die4 + die5;
 		else if(sorted.getThird() == sorted.getFourth() && sorted.getFourth() == sorted.getFifth())threeKind = die1 + die2 + die3 + die4 + die5;

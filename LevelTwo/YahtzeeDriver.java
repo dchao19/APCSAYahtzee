@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class YahtzeeDriver
@@ -10,17 +11,29 @@ public class YahtzeeDriver
 	*/
 	public static void main(String [] args)
 	{
-
-        int score;
-        YahtzeeGame myGame=new YahtzeeGame();
-        System.out.println("Welcome to Daniel's APCSA Yahtzee Game!");
-        score=myGame.playGame();
         Scanner s = new Scanner(System.in);
-        System.out.print("Would you like to play again?");
-        String input = s.nextLine();
-        while(!input.equals("n")){
-            score = myGame.playGame();
-        }
+        int score;
+        int sum = 0;
+        int minScore = -999;
+        int maxScore = 0;
+        int numGames = 0;
+        String input;
+        do{
+            numGames++;
+            YahtzeeGame game = new YahtzeeGame();
+            int gameResult = game.playGame();
+            sum += gameResult;
+            if(gameResult > maxScore) maxScore = gameResult;
+            if(gameResult < minScore || minScore != 999) minScore = gameResult;
 
-	}
+            System.out.print("Would you like to play again? (y/n)");
+            input = s.nextLine();
+
+        }while(input.equals("y"));
+
+        System.out.println("Number of Games Played: " + numGames);
+        System.out.println("Max Score: " + maxScore);
+        System.out.println("Min Score: " + minScore);
+        System.out.println("Average Score: " + (double)sum/numGames);
+    }
 }
